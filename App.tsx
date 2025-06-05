@@ -4,12 +4,12 @@ import MapView from 'react-native-maps';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import BottomSheetModalProvider from '@gorhom/bottom-sheet';
 import BottomBar from './src/components/BottomBar';
 import InfoScreen from './src/screens/InfoScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import MoreScreen from './src/screens/MoreScreen';
 import MapView2 from './src/screens/TestMap';
+import BottomSheet from './src/components/BottomSheet';
 
 
 console.log('App render')
@@ -37,11 +37,7 @@ export default function App() {
         {overlay === 'more' && (
           <MoreScreen onClose={() => setOverlay('none')} />
         )}
-        <BottomBar
-          onInfo={() => setOverlay('info')}
-          onMore={() => setOverlay('more')}
-          onProfile={() => setOverlay('profile')}
-        />
+        <BottomSheet />
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
